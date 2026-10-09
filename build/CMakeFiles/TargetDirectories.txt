@@ -1,0 +1,3 @@
+/home/luis/Projects/CppDataTransformer/build/CMakeFiles/CppDataTransformer.dir
+/home/luis/Projects/CppDataTransformer/build/CMakeFiles/edit_cache.dir
+/home/luis/Projects/CppDataTransformer/build/CMakeFiles/rebuild_cache.dir
