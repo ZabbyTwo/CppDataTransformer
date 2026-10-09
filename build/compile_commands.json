@@ -1,8 +1,0 @@
-[
-{
-  "directory": "/home/luis/Projects/CppDataTransformer/build",
-  "command": "/usr/bin/g++   -g -o CMakeFiles/CppDataTransformer.dir/src/main.cpp.o -c /home/luis/Projects/CppDataTransformer/src/main.cpp",
-  "file": "/home/luis/Projects/CppDataTransformer/src/main.cpp",
-  "output": "CMakeFiles/CppDataTransformer.dir/src/main.cpp.o"
-}
-]
