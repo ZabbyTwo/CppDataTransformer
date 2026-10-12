@@ -1,2 +1,2 @@
-# CppDataTransformer
-A lightweight C++ utility designed to parse CSV files and transform them into structured XML formats.
+# Cpp Data Transformer
+Going to be a small little library to work easily with different data formats
