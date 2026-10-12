@@ -1,21 +1,19 @@
 #include <iostream>
-#include <fstream>
 #include <string>
-#include <vector>
-#include <algorithm>
-#include <sstream>
-#include <unordered_map>
+
 #include "csvFile/csvFile.hpp"
+#include "tests/unitTests.hpp"
 
 int main()
 {
     char delimiter{';'};
-    std::string csvPath{"/home/luis/Projects/CppDataTransformer/resources/csvTest.csv"};
+    std::string csvPath{"/home/luis/Projects/CppDataTransformer/resources/csv.csv"};
 
     csvFile csvFile(delimiter, csvPath);
 
-    createXML(csvFile);
+    createXmlFromCsv(csvFile);
+
+    runCsvFileUnitTest();
 
     return 0;
 }
-

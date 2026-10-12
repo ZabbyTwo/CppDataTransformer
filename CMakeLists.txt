@@ -9,5 +9,6 @@ target_sources(CppDataTransformer
     src/main.cpp
     src/csvFile/csvFile.cpp
     src/csvFile/csvFile.hpp
-    src/tests/csvFileUnitTests.cpp
+    src/tests/unitTests.cpp
+    src/tests/unitTests.hpp
 )

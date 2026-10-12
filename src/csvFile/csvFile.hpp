@@ -1,4 +1,5 @@
 #pragma once
+
 #include <vector>
 #include <string>
 #include <iostream>
@@ -93,7 +94,8 @@ struct csvFile
                 return header;
             }
         }
+        return "NO HEADER FOUND";
     }
 };
 
-void createXML(const csvFile &csvData);
+void createXmlFromCsv(const csvFile &csvData);

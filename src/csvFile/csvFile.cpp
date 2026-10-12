@@ -1,9 +1,9 @@
 #include "csvFile.hpp"
 
-void createXML(const csvFile &csvData)
+void createXmlFromCsv(const csvFile &csvData)
 {
     // XML filename
-    std::string xmlFilename{"./resources/xmltest.xml"};
+    std::string xmlFilename{"./resources/xml.xml"};
     // Top level Root Name
     std::string topLevelName{"root"};
     // Each Record XML Name
