@@ -1,9 +1,9 @@
-#include "csvFile.hpp"
+#include "dataTransformer.hpp"
 
 void createXmlFromCsv(const csvFile &csvData)
 {
     // XML filename
-    std::string xmlFilename{"./resources/xml.xml"};
+    std::string xmlFilename{"../resources/xml.xml"};
     // Top level Root Name
     std::string topLevelName{"root"};
     // Each Record XML Name
@@ -15,13 +15,13 @@ void createXmlFromCsv(const csvFile &csvData)
     {
         xmlFile << "<?xml version='1.0' encoding='UTF-8'?>";
         xmlFile << "<" << topLevelName << ">";
-        for (const auto &um : csvData.values)
+        for (const auto &um : csvData.getValues())
         {
             xmlFile << "<" << recordXmlName << ">";
 
-            for (int i{0}; i < csvData.headers.size(); i++)
+            for (int i{0}; i < csvData.getHeaders().size(); i++)
             {
-                xmlFile << "<" << csvData.headers.at(i) << ">" << um.at(i) << "</" << csvData.headers.at(i) << ">";
+                xmlFile << "<" << csvData.getHeaders().at(i) << ">" << um.at(i) << "</" << csvData.getHeaders().at(i) << ">";
             }
             xmlFile << "</" << recordXmlName << ">";
         }

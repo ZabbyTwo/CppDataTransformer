@@ -7,16 +7,18 @@
 #include <fstream>
 #include <sstream>
 
-struct csvFile
+class csvFile
 {
-    std::vector<std::string> headers;
-    std::vector<std::vector<std::string>> values;
+private:
+    std::vector<std::string> m_headers;
+    std::vector<std::vector<std::string>> m_values;
 
     static inline auto lambdaCout = [](auto n)
     {
         std::cout << n << " ";
     };
 
+public:
     csvFile(char delimiter, const std::string &csvPath)
     {
         std::string currentLine;
@@ -36,7 +38,7 @@ struct csvFile
                     // header
                     while (std::getline(ss, currentValue, delimiter))
                     {
-                        headers.push_back(currentValue);
+                        m_headers.push_back(currentValue);
                     }
                     isFirstLine = false;
                 }
@@ -51,7 +53,7 @@ struct csvFile
                     }
 
                     // Das push_back passiert NUR, wenn wir im Daten-Block sind
-                    values.push_back(valuesTemp);
+                    m_values.push_back(valuesTemp);
                 }
             }
             file.close();
@@ -65,10 +67,10 @@ struct csvFile
     void print()
     {
         std::cout << "Headers: " << "\n";
-        std::for_each(headers.begin(), headers.end(), lambdaCout);
+        std::for_each(m_headers.begin(), m_headers.end(), lambdaCout);
         std::cout << "\n";
         std::cout << "Values: " << "\n";
-        for (auto v1 : values)
+        for (auto v1 : m_values)
         {
             std::for_each(v1.begin(), v1.end(), lambdaCout);
             std::cout << "\n";
@@ -77,17 +79,17 @@ struct csvFile
 
     std::vector<std::string> getHeaders()
     {
-        return headers;
+        return m_headers;
     }
 
     std::string getSpecificHeaderByPos(const int pos) const
     {
-        return headers.at(pos);
+        return m_headers.at(pos);
     }
 
     std::string getSpecificHeaderByName(const std::string name) const
     {
-        for (auto header : headers)
+        for (auto header : m_headers)
         {
             if (header == name)
             {
@@ -95,6 +97,16 @@ struct csvFile
             }
         }
         return "NO HEADER FOUND";
+    }
+
+    std::vector<std::string> getHeaders() const
+    {
+        return m_headers;
+    }
+
+    std::vector<std::vector<std::string>> getValues() const
+    {
+        return m_values;
     }
 };
 

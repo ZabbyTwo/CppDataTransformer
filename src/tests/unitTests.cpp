@@ -4,7 +4,7 @@
 #include <cassert>
 
 #include "unitTests.hpp"
-#include "../csvFile/csvFile.hpp"
+#include "../dataTransformer/dataTransformer.hpp"
 
 bool runCsvFileUnitTest()
 {
@@ -24,13 +24,14 @@ bool runCsvFileUnitTest()
     assert(csv.getSpecificHeaderByPos(1) == "Age" && "Second header should be Age");
     assert(csv.getSpecificHeaderByName("City") == "City" && "Should find City header");
 
-    assert(csv.values.size() == 2 && "Should have 2 rows of data");
-    assert(csv.values[0].size() == 3 && "First row should have 3 columns");
-    assert(csv.values[0][0] == "Luis" && "First value should be Luis");
-    assert(csv.values[1][2] == "Berlin" && "Last value should be Berlin");
-    assert(csv.values[0][1] == "21" && "Luis age should be 21");
+    auto values = csv.getValues();
+    assert(values.size() == 2 && "Should have 2 rows of data");
+    assert(values[0].size() == 3 && "First row should have 3 columns");
+    assert(values[0][0] == "Luis" && "First value should be Luis");
+    assert(values[1][2] == "Berlin" && "Last value should be Berlin");
+    assert(values[0][1] == "21" && "Luis age should be 21");
     // std::stoi to check int value
-    assert(std::stoi(csv.values[0][1]) == 21 && "Luis age should be 21"); 
+    assert(std::stoi(values[0][1]) == 21 && "Luis age should be 21");
 
     std::remove(testPath.c_str());
 

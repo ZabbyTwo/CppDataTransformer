@@ -7,8 +7,8 @@ add_executable(CppDataTransformer)
 target_sources(CppDataTransformer
     PRIVATE
     src/main.cpp
-    src/csvFile/csvFile.cpp
-    src/csvFile/csvFile.hpp
+    src/dataTransformer/dataTransformer.cpp
+    src/dataTransformer/dataTransformer.hpp
     src/tests/unitTests.cpp
     src/tests/unitTests.hpp
 )
