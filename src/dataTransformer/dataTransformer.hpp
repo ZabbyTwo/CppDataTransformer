@@ -77,12 +77,12 @@ public:
         }
     }
 
-    std::string getSpecificHeaderByPos(const int pos) const
+    std::string getSpecificHeaderByPos(const int& pos) const
     {
         return m_headers.at(pos);
     }
 
-    bool doesHeaderExists(const std::string name) const
+    bool doesHeaderExists(const std::string& name) const
     {
         for (auto header : m_headers)
         {
@@ -95,7 +95,7 @@ public:
         return false;
     }
 
-    bool doesValueExists(const std::string value) const
+    bool doesValueExists(const std::string& value) const
     {
         for (auto row : m_values)
         {
@@ -111,12 +111,12 @@ public:
         return false;
     }
 
-    std::vector<std::string> getHeaders() const
+    const std::vector<std::string> &getHeaders() const
     {
         return m_headers;
     }
 
-    std::vector<std::vector<std::string>> getValues() const
+    const std::vector<std::vector<std::string>> &getValues() const
     {
         return m_values;
     }
