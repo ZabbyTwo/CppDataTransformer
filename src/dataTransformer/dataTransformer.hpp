@@ -91,7 +91,8 @@ public:
                 return true;
             }
         }
-        return "NO HEADER FOUND";
+        std::cerr << "NO HEADER FOUND";
+        return false;
     }
 
     bool doesValueExists(const std::string value) const
@@ -106,7 +107,8 @@ public:
                 }
             }
         }
-        return "NO VALUE FOUND";
+        std::cerr << "NO VALUE FOUND";
+        return false;
     }
 
     std::vector<std::string> getHeaders() const
