@@ -77,26 +77,36 @@ public:
         }
     }
 
-    std::vector<std::string> getHeaders()
-    {
-        return m_headers;
-    }
-
     std::string getSpecificHeaderByPos(const int pos) const
     {
         return m_headers.at(pos);
     }
 
-    std::string getSpecificHeaderByName(const std::string name) const
+    bool doesHeaderExists(const std::string name) const
     {
         for (auto header : m_headers)
         {
             if (header == name)
             {
-                return header;
+                return true;
             }
         }
         return "NO HEADER FOUND";
+    }
+
+    bool doesValueExists(const std::string value) const
+    {
+        for (auto row : m_values)
+        {
+            for (auto value_for : row)
+            {
+                if (value_for == value)
+                {
+                    return true;
+                }
+            }
+        }
+        return "NO VALUE FOUND";
     }
 
     std::vector<std::string> getHeaders() const

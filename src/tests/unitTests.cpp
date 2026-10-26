@@ -22,7 +22,7 @@ bool runCsvFileUnitTest()
     assert(headers.size() == 3 && "Header count should be 3");
     assert(headers[0] == "Name" && "First header should be Name");
     assert(csv.getSpecificHeaderByPos(1) == "Age" && "Second header should be Age");
-    assert(csv.getSpecificHeaderByName("City") == "City" && "Should find City header");
+    assert(csv.doesHeaderExists("City") == true && "Should find City header");
 
     auto values = csv.getValues();
     assert(values.size() == 2 && "Should have 2 rows of data");
@@ -32,6 +32,7 @@ bool runCsvFileUnitTest()
     assert(values[0][1] == "21" && "Luis age should be 21");
     // std::stoi to check int value
     assert(std::stoi(values[0][1]) == 21 && "Luis age should be 21");
+    assert(csv.doesValueExists("Emma") == true && "Should find Emma in values");
 
     std::remove(testPath.c_str());
 
